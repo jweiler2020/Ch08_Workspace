@@ -9,7 +9,7 @@ public class Bonus1
 		long num = kb.nextLong();
 		kb.nextLine();
 
-		System.out.format("%d! = %s = %s", num, factorialString(num), Long.toUnsignedString(num));
+		System.out.format("%d! = %s = %s", num, factorialString(num), Long.toUnsignedString(factorial(num)));
 	}
 
 	private static long factorial(long num)
