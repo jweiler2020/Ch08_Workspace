@@ -15,38 +15,40 @@ public class BonusBonus
 	private static int sumDigits(int n)
 	{
 		int sum = 0;
-		int i = 10;
-
-		while(true)
+		int i = 1;
+		int j = 10;
+		while(n > 0)
 		{
-			int add = modulo(n, i);
-			if(add == n)
-				break;
-			sum += modulo(n, i);
-			i = multiply(i, 10);
+			if(modulo(n, j) == 0)
+			{
+				i = mult(i, 10);
+				j = mult(j, 10);
+			}
+			else
+			{
+				sum++;
+				n -= i;
+			}
 		}
-
 		return sum;
-	}
-
-	private static int multiply(int a, int b)
-	{
-		int prod = 0;
-
-		for(int i = 0; i < a; i++)
-		{
-			prod += b;
-		}
-
-		return prod;
 	}
 
 	private static int modulo(int a, int b)
 	{
-		while(a > 0)
+		while(a >= 0)
 		{
 			a -= b;
 		}
 		return a + b;
+	}
+
+	private static int mult(int a, int b)
+	{
+		int sum = 0;
+		for(int i = 0; i < b; i++)
+		{
+			sum += a;
+		}
+		return sum;
 	}
 }
